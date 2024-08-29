@@ -1,0 +1,50 @@
+Step no : 1 
+
+(for vite/react app pre install this npm -> install --save-dev webpack webpack-cli)
+
+-> install webkit using this command  
+ -> npm install -g generate-webpack
+Step no : 2 
+-> paste this code into next.confi.mjs file 
+
+ ->// next.config.mjs
+import webpack from 'webpack';
+
+export default {
+  webpack(config, { isServer }) {
+    // Example: Add a Webpack plugin
+    if (!isServer) {
+      // Only add the plugin on the client-side
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /\/__tests__\//,
+        })
+      );
+    }
+
+    // Example: Modify Webpack configuration
+    config.module.rules.push({
+      test: /\.(glsl|vs|fs)$/,
+      use: 'webpack-glsl-loader',
+    });
+
+    return config;
+  },
+};
+
+Step : 3 
+
+-> install shery js using this command
+ -> npm install sheryjs
+Step no : 4 
+
+-> import sherry js using this code
+ 
+ -> import Shery from 'sheryjs';
+Step no : 5 
+paste this commands 
+-> npm install raw-loader --save-dev
+->npm install webpack-glsl-loader --save-dev
+
+Step no : 6 
+"use shery js components"
